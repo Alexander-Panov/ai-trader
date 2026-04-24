@@ -1,0 +1,9 @@
+/.venv/
+/.idea/
+
+
+/.env
+/LOCAL.md
+/CLAUDE.md
+/log.jsonl
+/docs/
