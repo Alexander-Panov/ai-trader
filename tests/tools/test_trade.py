@@ -27,8 +27,8 @@ def use_mock_arena_client():
 async def test_buy(symbol):
     result = await buy.ainvoke({"symbol": symbol, "amount": 10})
 
-    assert result.symbol == symbol
-    assert result.side == Side.BUY
+    assert result.order.symbol == symbol
+    assert result.order.side == Side.BUY
     assert mock_portfolio.positions[symbol] == 10
     assert mock_portfolio.cash < 100_000.0
 
@@ -38,8 +38,8 @@ async def test_sell(symbol):
     await buy.ainvoke({"symbol": symbol, "amount": 10})
     result = await sell.ainvoke({"symbol": symbol, "amount": 10})
 
-    assert result.symbol == symbol
-    assert result.side == Side.SELL
+    assert result.order.symbol == symbol
+    assert result.order.side == Side.SELL
     assert mock_portfolio.positions[symbol] == 0
     assert mock_portfolio.cash != 100_000.0
 

@@ -3,7 +3,7 @@ from datetime import datetime
 from decimal import Decimal
 
 from config import STOCKS
-from trade.arena.models import AccountResponse, OrderResponse, PositionResponse
+from trade.arena.models import AccountResponse, OrderInResponse, OrderResponse, PositionResponse
 from trade.finam.models import FinamDecimal, QuoteResponse, Quote, Side
 from trade.models import StockPrice
 
@@ -93,11 +93,13 @@ class MockArenaClient:
 
         return OrderResponse(
             order_id=uuid.uuid4(),
-            quantity=_fd(quantity),
-            symbol=symbol,
-            side=side,
-            execution_price=_fd(DEFAULT_PRICE),
-            commission=_fd(float(commission)),
+            order=OrderInResponse(
+                quantity=_fd(quantity),
+                symbol=symbol,
+                side=side,
+                execution_price=_fd(DEFAULT_PRICE),
+                commission=_fd(float(commission)),
+            ),
         )
 
 

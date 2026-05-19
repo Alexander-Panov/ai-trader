@@ -24,13 +24,18 @@ class AccountResponse(BaseModel):
     equity: FinamDecimal
 
 
-class OrderResponse(BaseModel):
-    order_id: uuid.UUID
+class OrderInResponse(BaseModel):
     quantity: FinamDecimal
     symbol: Symbol
     side: Side
     execution_price: FinamDecimal
     commission: FinamDecimal
+
+
+class OrderResponse(BaseModel):
+    order_id: uuid.UUID
+    order: OrderInResponse
+
 
 class TradeRead(BaseModel):
     trade_id: uuid.UUID

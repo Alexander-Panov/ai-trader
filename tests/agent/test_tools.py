@@ -103,13 +103,13 @@ def test_search_result_fields():
 
 async def test_buy(arena_client):
     result = await buy.ainvoke({"symbol": "SBER@MISX", "amount": 1})
-    assert result.symbol == "SBER@MISX"
-    assert result.side == Side.BUY
-    assert float(result.quantity.value) == 1
+    assert result.order.symbol == "SBER@MISX"
+    assert result.order.side == Side.BUY
+    assert float(result.order.quantity.value) == 1
 
 
 async def test_sell(arena_client):
     result = await sell.ainvoke({"symbol": "SBER@MISX", "amount": 1})
-    assert result.symbol == "SBER@MISX"
-    assert result.side == Side.SELL
-    assert float(result.quantity.value) == 1
+    assert result.order.symbol == "SBER@MISX"
+    assert result.order.side == Side.SELL
+    assert float(result.order.quantity.value) == 1
