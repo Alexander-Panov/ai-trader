@@ -13,7 +13,7 @@ FINAM_API_KEY = os.getenv("FINAM_API_KEY")
 FINAM_ACCOUNT_ID = os.getenv("FINAM_ACCOUNT_ID")
 
 # Finam Arena API credentials
-FINAM_ARENA_URL = "http://localhost:8000/v1"
+FINAM_ARENA_URL = "https://arena.finam.ru/v1"
 FINAM_ARENA_API_KEY = os.getenv("FINAM_ARENA_API_KEY")
 FINAM_ARENA_ACCOUNT_ID = os.getenv("FINAM_ARENA_ACCOUNT_ID")
 
